@@ -7,6 +7,8 @@ jobs:
   style:
     runs-on: ubuntu-latest
     name: ${{ matrix.toolchain }}
+    permissions:
+      checks: write
     strategy:
       fail-fast: false
       matrix:
