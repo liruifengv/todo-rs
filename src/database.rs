@@ -62,6 +62,7 @@ impl Database {
                 for (j, line) in contents.lines().enumerate() {
                     if i != j {
                         new_contents.push_str(line);
+                        new_contents.push_str("\n")
                     }
                 }
                 self.file.seek(std::io::SeekFrom::Start(0)).unwrap();
