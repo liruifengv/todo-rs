@@ -58,13 +58,13 @@ impl Database {
         match line {
             Some((i, _)) => {
                 let contents = fs::read_to_string(".rodorc").unwrap();
-                let mut new_contents = String::new();
-                for (j, line) in contents.lines().enumerate() {
-                    if i != j {
-                        new_contents.push_str(line);
-                        new_contents.push('\n');
-                    }
-                }
+                let new_contents = contents
+                    .lines()
+                    .enumerate()
+                    .filter(|(j, _)| *j != i)
+                    .map(|(_, line)| line)
+                    .collect::<Vec<_>>()
+                    .join("\n");
                 self.file.seek(std::io::SeekFrom::Start(0)).unwrap();
                 self.file.write_all(new_contents.as_bytes()).unwrap();
                 self.file.set_len(new_contents.len() as u64).unwrap();
@@ -80,19 +80,11 @@ impl Database {
     // 读取记录
     pub fn read_records(&mut self) -> Vec<Record> {
         let reader = BufReader::new(&self.file);
-        let mut records = Vec::new();
-        for line in reader.lines() {
-            match line {
-                Ok(line) => {
-                    if line.is_empty() {
-                        continue;
-                    }
-                    let record = parse_record_line(&line);
-                    records.push(record);
-                }
-                Err(_) => panic!("Error reading file"),
-            }
-        }
-        records
+        reader
+            .lines()
+            .filter_map(|line| line.ok())
+            .filter(|line| !line.is_empty())
+            .map(|line| parse_record_line(&line))
+            .collect()
     }
 }
