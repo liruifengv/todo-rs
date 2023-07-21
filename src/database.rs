@@ -20,7 +20,7 @@ pub fn parse_record_line(line: &str) -> Record {
     let content = fields[1..].join(",");
     Record {
         id: fields[0].parse::<i32>().unwrap(),
-        content: content,
+        content,
     }
 }
 
@@ -83,7 +83,7 @@ impl Database {
         let reader = BufReader::new(&self.file);
         reader
             .lines()
-            .filter_map(|line| line.ok())
+            .map_while(Result::ok)
             .filter(|line| !line.is_empty())
             .map(|line| parse_record_line(&line))
             .collect()
