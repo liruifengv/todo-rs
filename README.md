@@ -4,7 +4,7 @@ A minimalist CLI todo list write by rust.
 
 ## Usage
 
-```
+```bash
 Usage: rodo [command] [options]
 
 Commands:
@@ -15,7 +15,7 @@ Commands:
 
 ## Development
 
-```
+```bash
 # clone the repo
 git clone
 
