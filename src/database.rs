@@ -52,7 +52,7 @@ impl Database {
         let reader = BufReader::new(&self.file);
         let mut lines = reader.lines().enumerate();
         let line = lines.find(|(_, line)| {
-            let record = parse_record_line(&line.as_ref().unwrap());
+            let record = parse_record_line(line.as_ref().unwrap());
             record.id == id
         });
         match line {
@@ -83,7 +83,7 @@ impl Database {
         for line in reader.lines() {
             match line {
                 Ok(line) => {
-                    if line == "" {
+                    if line.is_empty() {
                         continue;
                     }
                     let record = parse_record_line(&line);

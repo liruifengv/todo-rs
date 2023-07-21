@@ -34,7 +34,7 @@ fn main() {
         }
         "ls" => {
             let records = db.read_records();
-            if records.len() == 0 {
+            if records.is_empty() {
                 println!("No records. You can add one with `rodo add [content]`");
                 return;
             }
