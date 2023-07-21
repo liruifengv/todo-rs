@@ -6,7 +6,7 @@
       "type": "lldb",
       "request": "launch",
       "program": "${workspaceRoot}/target/debug/todo-rs",
-      "args": [],
+      "args": ["rm", "2"],
       "cwd": "${workspaceRoot}",
     }
   ]
