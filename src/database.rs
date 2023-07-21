@@ -17,9 +17,10 @@ pub fn parse_record_line(line: &str) -> Record {
             content: "".to_string(),
         };
     }
+    let content = fields[1..].join(",");
     Record {
         id: fields[0].parse::<i32>().unwrap(),
-        content: fields[1].to_string(),
+        content: content,
     }
 }
 
