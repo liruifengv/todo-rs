@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "**/*.bk": true,
+      "**/node_modules": true,
+      "**/target": true
+  },
+  "[rust]": {
+      "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.checkOnSave.features": [
+      // We use this to make IDE faster
+      "rust-analyzer"
+  ]
+}
