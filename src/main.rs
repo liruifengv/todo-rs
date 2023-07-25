@@ -1,14 +1,18 @@
 use std::env;
 mod database;
+mod utils;
+
+use database::Database;
+use utils::print_usage;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
-        println!("Usage: rodo [add|rm|ls] [args]");
+        print_usage();
         return;
     }
 
-    let mut db = database::Database::open(".rodorc");
+    let mut db = Database::open(".rodorc");
 
     let command = &args[1];
     match command.as_str() {
