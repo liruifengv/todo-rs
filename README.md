@@ -5,12 +5,23 @@ A minimalist CLI todo list write by rust.
 ## Usage
 
 ```bash
-Usage: rodo [command] [options]
+➜  ~  rodo --help
+rodo 0.1.0
+Rodo is a simple todo list manager.
 
-Commands:
-  add [contents]        Add a todo item
-  rm [item_id]          Remove a todo item
-  ls                    List all the todo items
+USAGE:
+    rodo.exe <SUBCOMMAND>
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    add       Add a todo item.
+    help      Print this message or the help of the given subcommand(s)
+    info      Show rodo info.
+    list      List all the todo items. [aliases: ls, ll, la]
+    remove    Remove a todo item. [aliases: rm]
 ```
 
 ## Development
