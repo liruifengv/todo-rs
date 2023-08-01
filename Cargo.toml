@@ -1,8 +1,22 @@
 [package]
-name = "todo-rs"
+name = "rodo"
 version = "0.1.0"
+authors = ["李瑞丰 <liruifeng1024@gmail.com>"]
 edition = "2021"
+description = "Rodo is a simple todo list manager."
+
+[[bin]]
+name = "rodo"
+path = "src/main.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = { version = "3.0", features = ["derive"] }
+
+[package.metadata.winres]
+# This section defines the metadata that appears in the rodo.exe PE header.
+OriginalFilename = "rodo.exe"
+LegalCopyright = "© Rodo contributors. MIT licensed."
+ProductName = "Rodo"
+FileDescription = "Rodo is a simple todo list manager."

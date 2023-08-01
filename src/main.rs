@@ -1,42 +1,41 @@
-use std::env;
+#[warn(unused_variables)]
+mod cli;
 mod database;
-mod utils;
 
+use clap::Parser;
+use cli::{Cli, Commands};
 use database::Database;
-use utils::print_usage;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    if args.len() < 2 {
-        print_usage();
-        return;
-    }
+    let args = Cli::parse();
 
     let mut db = Database::open(".rodorc");
 
-    let command = &args[1];
-    match command.as_str() {
-        "add" => {
-            if args.len() < 3 {
-                println!("Usage: rodo add [contents]");
+    match args.command {
+        Commands::Info => {
+            println!("Rodo is a simple todo list manager.");
+        }
+        Commands::Add { content } => {
+            if let Some(content) = content {
+                println!("Adding a todo item: {}", content);
+                let len = db.read_records().len();
+                db.add_record(&database::Record {
+                    id: len as i32 + 1,
+                    content: content,
+                });
+            } else {
+                println!("You need to specify the content of the todo item.");
+            }
+        }
+        Commands::Remove { id } => {
+            if id.is_none() {
+                println!("You need to specify the id of the todo item.");
                 return;
             }
-            let contents = &args[2..].join(" ");
-            let len = db.read_records().len();
-            db.add_record(&database::Record {
-                id: len as i32 + 1,
-                content: contents.to_string(),
-            });
+            println!("Removing a todo item: {}", id.clone().unwrap());
+            db.remove_record(id.unwrap().parse::<i32>().unwrap());
         }
-        "rm" => {
-            if args.len() < 3 {
-                println!("Usage: rodo rm [id]");
-                return;
-            }
-            let id = args[2].parse::<i32>().unwrap();
-            db.remove_record(id);
-        }
-        "ls" => {
+        Commands::List => {
             let records = db.read_records();
             if records.is_empty() {
                 println!("No records. You can add one with `rodo add [content]`");
@@ -45,9 +44,6 @@ fn main() {
             for record in records {
                 println!(" ⬜️ {}: {}", record.id, record.content);
             }
-        }
-        _ => {
-            println!("Unknown command: {}", command);
         }
     }
 }
