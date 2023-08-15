@@ -4,7 +4,7 @@ A minimalist CLI todo list write by rust.
 
 ## Usage
 
-```bash
+```console
 ➜  ~  rodo --help
 rodo 0.1.0
 Rodo is a simple todo list manager.
