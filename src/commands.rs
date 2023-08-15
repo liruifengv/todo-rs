@@ -11,9 +11,11 @@ pub fn info() -> Result<(), io::Error> {
 pub fn add(db: &mut Database, content: Option<String>) -> Result<(), io::Error> {
     if let Some(content) = content {
         println!("Adding a todo item: {}", content);
-        let len = db.read_records().len();
+
+        let id = db.read_records().last().map(|r| r.id + 1).unwrap_or(1);
+
         db.add_record(&Record {
-            id: len as i32 + 1,
+            id: id,
             content: content.clone(),
         })?;
         println!("📝 Item added: {}", content);
