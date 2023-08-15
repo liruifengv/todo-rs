@@ -2,11 +2,11 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/liruifengv/todo-rs)
 
-简体中文 | [English](./README.en-US.md)
+English | [简体中文](./README.md)
 
-Rust 开发的简易命令行 TODO LIST。
+A minimalist CLI todo list write by rust.
 
-## 用法
+## Usage
 
 ```console
 ➜  ~  rodo --help
@@ -28,27 +28,28 @@ SUBCOMMANDS:
     remove    Remove a todo item. [aliases: rm]
 ```
 
-## 开发
+## Development
 
 ```bash
-# 克隆这个仓库
+# clone the repo
 git clone
 
-# 本地运行
+# run the program in local
 cargo run
 
-# 打包
+# build the program
 cargo build
 ```
 
 ## ISSUE
 
-如果你遇到任何问题，欢迎[联系我](https://github.com/liruifengv/todo-rs/issues)。
+Please [contact me](https://github.com/liruifengv/todo-rs/issues) if you encounter any problems.
 
 ## Contributing
 
-你可以随时给这个项目提 PR。
+You can open a PR or issue to contribute to this project.
 
 ## License
 
-todo-rs 基于 MIT 协议。查看 [LICENSE](./LICENSE) 详情。
+todo-rs is released under the MIT License. See the bundled
+[LICENSE](./LICENSE) file for details.
