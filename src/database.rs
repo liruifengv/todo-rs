@@ -42,14 +42,13 @@ impl Database {
     }
 
     // 添加记录
-    pub fn add_record(&mut self, record: &Record) {
+    pub fn add_record(&mut self, record: &Record) -> Result<(), std::io::Error> {
         let line = format!("{},{}\n", record.id, record.content);
-        writeln!(self.file, "{}", line).unwrap();
-        println!("📝 Item added: {}", record.content);
+        writeln!(self.file, "{}", line)
     }
 
     // 删除记录
-    pub fn remove_record(&mut self, id: i32) {
+    pub fn remove_record(&mut self, id: i32) -> Result<(), std::io::Error> {
         let reader = BufReader::new(&self.file);
         let mut lines = reader.lines().enumerate();
         let line = lines.find(|(_, line)| {
@@ -69,12 +68,12 @@ impl Database {
                 self.file.seek(std::io::SeekFrom::Start(0)).unwrap();
                 self.file.write_all(new_contents.as_bytes()).unwrap();
                 self.file.set_len(new_contents.len() as u64).unwrap();
-
-                println!(" ❌ Item removed!\n");
+                Ok(())
             }
-            None => {
-                println!("No such record: {}", id);
-            }
+            None => Err(std::io::Error::new(
+                std::io::ErrorKind::Other,
+                format!("No such record: {}", id),
+            )),
         }
     }
 
