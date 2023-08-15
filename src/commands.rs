@@ -15,7 +15,7 @@ pub fn add(db: &mut Database, content: Option<String>) -> Result<(), io::Error> 
         let id = db.read_records().last().map(|r| r.id + 1).unwrap_or(1);
 
         db.add_record(&Record {
-            id: id,
+            id,
             content: content.clone(),
         })?;
         println!("📝 Item added: {}", content);
