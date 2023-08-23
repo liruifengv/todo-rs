@@ -5,10 +5,9 @@ pub const RODO_DB_FILENAME: &str = ".rododb";
 
 // 获取 db 文件路径
 pub fn get_db_file_path() -> std::path::PathBuf {
-    let dir = home_dir()
+    home_dir()
         .map(|it| it.join(RODO_DB_FILENAME))
-        .unwrap_or_default();
-    dir
+        .unwrap_or_default()
 }
 
 /// 检查 db 文件是否存在
