@@ -1,6 +1,8 @@
+use crate::utils::{check_db_file, get_db_file_path};
 use std::fs;
 use std::fs::{File, OpenOptions};
 use std::io::{BufRead, BufReader, Seek, Write};
+
 // 数据记录
 pub struct Record {
     pub id: i32,
@@ -31,12 +33,16 @@ pub struct Database {
 
 impl Database {
     // 打开数据库文件
-    pub fn open(filename: &str) -> Database {
+    pub fn open() -> Database {
+        check_db_file().unwrap();
+
+        let db_file = get_db_file_path();
+
         let file = OpenOptions::new()
             .create(true)
             .read(true)
             .write(true)
-            .open(filename)
+            .open(db_file)
             .unwrap();
         Database { file }
     }
@@ -57,7 +63,8 @@ impl Database {
         });
         match line {
             Some((i, _)) => {
-                let contents = fs::read_to_string(".rodorc").unwrap();
+                let db_file = get_db_file_path();
+                let contents = fs::read_to_string(db_file).unwrap();
                 let new_contents = contents
                     .lines()
                     .enumerate()

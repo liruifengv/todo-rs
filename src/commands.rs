@@ -1,9 +1,13 @@
 use crate::database::{Database, Record};
+use crate::utils::get_db_file_path;
 use std::io;
 
 // Show rodo info
 pub fn info() -> Result<(), io::Error> {
+    let db_file = get_db_file_path();
+    println!("Rodo version: {}", env!("CARGO_PKG_VERSION"));
     println!("Rodo is a simple todo list manager.");
+    println!("Your todo list is stored at: {}", db_file.display());
     Ok(())
 }
 

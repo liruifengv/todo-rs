@@ -2,6 +2,7 @@
 mod cli;
 mod commands;
 mod database;
+mod utils;
 
 use clap::Parser;
 use cli::{Cli, Commands};
@@ -10,7 +11,7 @@ use database::Database;
 fn main() {
     let args = Cli::parse();
 
-    let mut db = Database::open(".rodorc");
+    let mut db = Database::open();
 
     let result = match args.command {
         Commands::Info => commands::info(),

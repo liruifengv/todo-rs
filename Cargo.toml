@@ -13,6 +13,7 @@ path = "src/main.rs"
 
 [dependencies]
 clap = { version = "3.0", features = ["derive"] }
+dirs = "5.0.0"
 
 [package.metadata.winres]
 # This section defines the metadata that appears in the rodo.exe PE header.
