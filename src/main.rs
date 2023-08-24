@@ -12,7 +12,7 @@ fn main() {
         return;
     }
 
-    let mut db = Database::open(".rodorc");
+    let mut db = Database::open(".rododb");
 
     let command = &args[1];
     match command.as_str() {
@@ -22,9 +22,9 @@ fn main() {
                 return;
             }
             let contents = &args[2..].join(" ");
-            let len = db.read_records().len();
+            let id = db.read_records().last().map(|r| r.id + 1).unwrap_or(1);
             db.add_record(&database::Record {
-                id: len as i32 + 1,
+                id,
                 content: contents.to_string(),
             });
         }

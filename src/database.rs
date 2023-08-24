@@ -58,7 +58,7 @@ impl Database {
         });
         match line {
             Some((i, _)) => {
-                let contents = fs::read_to_string(".rodorc").unwrap();
+                let contents = fs::read_to_string(".rododb").unwrap();
                 let new_contents = contents
                     .lines()
                     .enumerate()
