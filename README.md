@@ -6,6 +6,12 @@
 
 Rust 开发的简易命令行 TODO LIST。
 
+## 安装
+
+```bash
+cargo install --git https://github.com/liruifengv/todo-rs
+```
+
 ## 用法
 
 ```console
