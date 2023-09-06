@@ -14,6 +14,7 @@ Rust 开发的简易命令行 TODO LIST。
 你可以在我的博客中找到更多关于 Rust 的文章：[https://www.sayhub.me/tag/Rust/](https://www.sayhub.me/tag/Rust)
 
 也可以关注我的公众号 SayHub，第一时间获取更新：
+
 ![](https://images.sayhub.me/blog/qrcode.png)
 
 ## 参考资料
