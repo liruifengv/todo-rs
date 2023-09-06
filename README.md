@@ -2,8 +2,25 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/liruifengv/todo-rs)
 
+简体中文 | [English](./README.en-US.md)
+
 Rust 开发的简易命令行 TODO LIST。
 
+## 教程文章
+
+- [Rust 实战教程之用 Rust 写一个命令行 TODO List（一）](https://www.sayhub.me/blog/write-todo-by-rust/)
+- 未完待续
+
+你可以在我的博客中找到更多关于 Rust 的文章：[https://www.sayhub.me/tag/Rust/](https://www.sayhub.me/tag/Rust)
+
+也可以关注我的公众号 SayHub，第一时间获取更新：
+
+![](https://images.sayhub.me/blog/qrcode.png)
+
+## 参考资料
+- [dvm](https://github.com/justjavac/dvm)
+- [Rust 命令行手册](https://rust-cli.github.io/book/index.html)
+- [zodo](https://github.com/unixzii/zodo)
 ## 安装
 
 ```bash
