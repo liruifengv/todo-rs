@@ -9,6 +9,7 @@ Rust 开发的简易命令行 TODO LIST。
 ## 教程文章
 
 - [Rust 实战教程之用 Rust 写一个命令行 TODO List（一）](https://www.sayhub.me/blog/write-todo-by-rust/)
+- [Rust 实战教程之用 Rust 写一个命令行 TODO List（二）](https://www.sayhub.me/blog/write-todo-by-rust-2/)
 - 未完待续
 
 你可以在我的博客中找到更多关于 Rust 的文章：[https://www.sayhub.me/tag/Rust/](https://www.sayhub.me/tag/Rust)
