@@ -10,19 +10,21 @@ pub struct Record {
 }
 
 // 解析记录行
-pub fn parse_record_line(line: &str) -> Record {
-    let fields: Vec<&str> = line.split(',').collect();
-    // 处理空行的情况
-    if fields.len() == 1 {
-        return Record {
-            id: 0,
-            content: "".to_string(),
-        };
-    }
-    let content = fields[1..].join(",");
-    Record {
-        id: fields[0].parse::<i32>().unwrap(),
-        content,
+impl From<&str> for Record {
+    fn from(line: &str) -> Self {
+        let fields: Vec<&str> = line.split(',').collect();
+        // 处理空行的情况
+        if fields.len() == 1 {
+            return Record {
+                id: 0,
+                content: "".to_string(),
+            };
+        }
+        let content = fields[1..].join(",");
+        Record {
+            id: fields[0].parse::<i32>().unwrap(),
+            content,
+        }
     }
 }
 
@@ -58,7 +60,7 @@ impl Database {
         let reader = BufReader::new(&self.file);
         let mut lines = reader.lines().enumerate();
         let line = lines.find(|(_, line)| {
-            let record = parse_record_line(line.as_ref().unwrap());
+            let record = Record::from(line.as_ref().unwrap().as_str());
             record.id == id
         });
         match line {
@@ -91,7 +93,7 @@ impl Database {
             .lines()
             .map_while(Result::ok)
             .filter(|line| !line.is_empty())
-            .map(|line| parse_record_line(&line))
+            .map(|line| Record::from(line.as_str()))
             .collect()
     }
 }
