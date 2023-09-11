@@ -1,6 +1,6 @@
 [package]
 name = "rodo"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["李瑞丰 <liruifeng1024@gmail.com>"]
 edition = "2021"
 description = "Rodo is a simple todo list manager."
