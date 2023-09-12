@@ -43,7 +43,7 @@ pub fn remove(db: &mut Database, id: Option<String>) -> Result<(), io::Error> {
 }
 
 // List all todo items
-pub fn list(db: &mut Database) -> Result<(), io::Error> {
+pub fn list(db: &Database) -> Result<(), io::Error> {
     let records = db.read_records();
     if records.is_empty() {
         eprintln!("No records. You can add one with `rodo add [content]`");

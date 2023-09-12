@@ -17,7 +17,7 @@ fn main() {
         Commands::Info => commands::info(),
         Commands::Add { content } => commands::add(&mut db, content),
         Commands::Remove { id } => commands::remove(&mut db, id),
-        Commands::List => commands::list(&mut db),
+        Commands::List => commands::list(&db),
     };
 
     if let Err(err) = result {
