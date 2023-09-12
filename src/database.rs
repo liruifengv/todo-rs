@@ -87,7 +87,7 @@ impl Database {
     }
 
     // 读取记录
-    pub fn read_records(&mut self) -> Vec<Record> {
+    pub fn read_records(&self) -> Vec<Record> {
         let reader = BufReader::new(&self.file);
         reader
             .lines()
