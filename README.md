@@ -12,7 +12,7 @@ Rust 开发的简易命令行 TODO LIST。
 - [Rust 实战教程之用 Rust 写一个命令行 TODO List（二）](https://liruifengv.com/posts/write-todo-by-rust-2/)
 - 未完待续
 
-你可以在我的博客中找到更多关于 Rust 的文章：[https://www.sayhub.me/tag/Rust/](https://liruifengv.com/tag/Rust)
+你可以在我的博客中找到更多关于 Rust 的文章：[https://liruifengv.com/tag/rust/](https://liruifengv.com/tag/rust)
 
 也可以关注我的公众号 SayHub，第一时间获取更新：
 
