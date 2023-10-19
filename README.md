@@ -8,15 +8,15 @@ Rust 开发的简易命令行 TODO LIST。
 
 ## 教程文章
 
-- [Rust 实战教程之用 Rust 写一个命令行 TODO List（一）](https://www.sayhub.me/blog/write-todo-by-rust/)
-- [Rust 实战教程之用 Rust 写一个命令行 TODO List（二）](https://www.sayhub.me/blog/write-todo-by-rust-2/)
+- [Rust 实战教程之用 Rust 写一个命令行 TODO List（一）](https://liruifengv.com/posts/write-todo-by-rust/)
+- [Rust 实战教程之用 Rust 写一个命令行 TODO List（二）](https://liruifengv.com/posts/write-todo-by-rust-2/)
 - 未完待续
 
-你可以在我的博客中找到更多关于 Rust 的文章：[https://www.sayhub.me/tag/Rust/](https://www.sayhub.me/tag/Rust)
+你可以在我的博客中找到更多关于 Rust 的文章：[https://www.sayhub.me/tag/Rust/](https://liruifengv.com/tag/Rust)
 
 也可以关注我的公众号 SayHub，第一时间获取更新：
 
-![](https://images.sayhub.me/blog/qrcode.png)
+![](https://bucket.liruifengv.com/qrcode.png)
 
 ## 参考资料
 - [dvm](https://github.com/justjavac/dvm)
